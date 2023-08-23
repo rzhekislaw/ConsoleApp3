@@ -75,6 +75,11 @@
                     }
                     else if (int.TryParse(input, out int parsedValue))
                     {
+                        if(parsedValue < 0)
+                        {
+                            Console.WriteLine("Value must be non-negative");
+                            continue;
+                        }
                         if (n != parsedValue)
                         {
                             attemptsLeft--;
