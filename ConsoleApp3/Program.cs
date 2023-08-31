@@ -71,7 +71,6 @@
                     if (input != "hint" && !int.TryParse(input, out int parsed))
                     {
                         Console.WriteLine("Wrong input");
-                        continue;
                     }
                     else if (int.TryParse(input, out int parsedValue))
                     {
@@ -84,7 +83,6 @@
                         {
                             attemptsLeft--;
                             Console.WriteLine("Wrong suggestion");
-                            continue;
                         }
                         else
                         {
@@ -165,7 +163,7 @@
                 var input = Console.ReadLine();
                 if(input == "y")
                 {
-                    foreach(var r in records.OrderBy(o => o.attemptsUsed).OrderByDescending(od => od.result))
+                    foreach (var r in records.OrderBy(o => o.attemptsUsed).ThenByDescending(tbd => tbd.result))
                     {
                         Console.WriteLine($"Try: {r.tryNum} Result: {r.result} Difficulty: {r.difficulty} Attempts used: {r.attemptsUsed} Hints used: {r.hintsUsed}");
                     }
